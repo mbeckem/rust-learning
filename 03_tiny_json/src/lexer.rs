@@ -152,9 +152,11 @@ impl<'a> Lexer<'a> {
 
         self.advance();
         while let Some(ch) = self.current {
-            if ch == '"' {
+            if ch == '"' || ch == '\n' {
                 self.advance();
-                return TokenKind::StringLiteral { terminated: true };
+                return TokenKind::StringLiteral {
+                    terminated: ch == '"',
+                };
             }
 
             if ch == '\\' {
