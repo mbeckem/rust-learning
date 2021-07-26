@@ -1,1 +1,1 @@
-    $ rustc main.rs && ./main.rs
+    $ rustc main.rs && ./main
